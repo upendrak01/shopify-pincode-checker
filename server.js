@@ -17,7 +17,7 @@ app.get('/pincode-check', async (req, res) => {
     const apiRes = await axios.get(url, {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.DELHIVERY_KEY}`
+       Authorization: `${process.env.DELHIVERY_KEY}`
       }
     });
 
