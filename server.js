@@ -14,12 +14,12 @@ app.get('/pincode-check', async (req, res) => {
 
   try {
     const url = `${USE_PROD ? PROD_URL : BASE_URL}/${pincode}?weight=1`;
-    const apiRes = await axios.get(url, {
-      headers: {
-        'Content-Type': 'application/json',
-       Authorization: `${process.env.DELHIVERY_KEY}`
-      }
-    });
+   const apiRes = await axios.get(url, {
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${process.env.DELHIVERY_KEY}`
+  }
+});
 
     const deliverable = apiRes.data.success && apiRes.data.delivery_codes?.length > 0;
     res.json({ deliverable, pincode });
